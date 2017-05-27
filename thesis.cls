@@ -127,11 +127,14 @@
 \def\smallssp{\def\baselinestretch{1.0}\large\small}
 \def\scriptsizessp{\def\baselinestretch{1.0}\large\scriptsize}
 
+\def\thesis@defaultsp{\dsp}
+
 %  draft option (this is where the draft option is actually implemented)
 %
 % \overfullrule = 0pt             % Default is dont mark overfull hboxes.
 \ifnum \@draftmark = 1
-\ssp				  % Single-spaces and
+\def\thesis@defaultsp{\ssp}       % Single-spaces and
+\thesis@defaultsp
 \overfullrule 5pt		  % causes overfull hboxes to be marked.
 \fi
 
@@ -682,7 +685,8 @@ $\:\overline{~~~~ \mbox{\rule{0in}{0.16in}\small ~\hspace{3.5in} Date }}\:$ \\
   \fi                        % FI
   \hbox{}\vfil               % Add fil glue to center title
 %%  \bgroup  \centering      % BEGIN centering %% Removed 19 Jan 88
-   \dsp                   % 30 Mar 07 Added by RJV to restore spacing at chapter boundaries
+   \thesis@defaultsp         % 30 Mar 07 Added by RJV to restore spacing at chapter boundaries
+                             % 26 May 17 nwf kicked to defaultsp so that [draft] works correctly
   \secdef\@part\@spart}
 
 \def\@part[#1]#2{\ifnum \c@secnumdepth >-2\relax  % IF secnumdepth > -2
@@ -735,7 +739,7 @@ $\:\overline{~~~~ \mbox{\rule{0in}{0.16in}\small ~\hspace{3.5in} Date }}\:$ \\
       \@tempswatrue           %       @tempswa := true
      \else \@tempswafalse     %  ELSE @tempswa := false
     \fi
-    \dsp                     % double spacing
+    \thesis@defaultsp         % double spacing
     \secdef\@chapter\@schapter}
     
 
@@ -822,7 +826,7 @@ $\:\overline{~~~~ \mbox{\rule{0in}{0.16in}\small ~\hspace{3.5in} Date }}\:$ \\
 %% by Jerry Leichter.
 %%
 \def\l@chapter#1#2{\addpenalty{-\@highpenalty}%
-   \dsp                   % 30 Mar 07 Added by RJV to restore spacing at chapter boundaries
+   \thesis@defaultsp      % 30 Mar 07 Added by RJV to restore spacing at chapter boundaries
    \vskip 1.0em plus\p@   % space above chapter line
    \@tempdima 1.5em       % width of box holding chapter number
    \begingroup
