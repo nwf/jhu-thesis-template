@@ -289,6 +289,7 @@
         \numberline{\thechapter}#1}\else
       \addcontentsline{toc}{chapter}{#1}\fi
    \chaptermark{#1}%
+   \@chapter@mid@hook
    \addtocontents{lof}%
        {\protect\addvspace{10\p@}} % Adds between-chapter space
    \addtocontents{lot}%

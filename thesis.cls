@@ -743,6 +743,9 @@ $\:\overline{~~~~ \mbox{\rule{0in}{0.16in}\small ~\hspace{3.5in} Date }}\:$ \\
     \secdef\@chapter\@schapter}
     
 
+% Hook inside \@chapter commands later, useful for adding one's own
+% list-of-* with addvspace directives, if nothing else.
+\def\@chapter@mid@hook{}
 
 %    ****************************************
 %    *         TABLE OF CONTENTS, ETC.      *
