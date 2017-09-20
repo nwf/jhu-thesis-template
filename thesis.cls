@@ -424,6 +424,9 @@ $\:\overline{~~~~ \mbox{\rule{0in}{0.16in}\small ~\hspace{3.5in} Date }}\:$ \\
 % preface/acknowledgments -- are numbered differently than 
 % the body of the thesis.
 
+\newcounter{@frontmatter@end@page}
+\def\@frontmatter@endpre@hook{}
+
 \newenvironment{frontmatter}
 { \renewcommand{\thepage}{\roman{page}}   %% lowercase roman numerals (global)
   \setcounter{page}{2}
@@ -431,12 +434,27 @@ $\:\overline{~~~~ \mbox{\rule{0in}{0.16in}\small ~\hspace{3.5in} Date }}\:$ \\
   %\pagestyle{botcenter}                   %% at bottom center of page (local)
 }
 {
+  \@frontmatter@endpre@hook
+  \setcounter{@frontmatter@end@page}{\number\value{page}}
   \newpage
   \renewcommand{\thepage}{\arabic{page}}  %% end roman (global)
   \setcounter{page}{1}
   \pagestyle{plain}                       %% back to top right
 }
 
+\newcounter{@backmatter@prior@page}
+\newenvironment{backmatter}{
+   \setcounter{@backmatter@prior@page}{\number\value{page}}
+   \if@openright\cleardoublepage\else\clearpage\fi
+   \renewcommand{\thepage}{\roman{page}}
+   \setcounter{page}{\number\value{@frontmatter@end@page}}
+   \stepcounter{page}
+}{
+   \newpage
+   \renewcommand{\thepage}{\arabic{page}}
+   \setcounter{page}{\number\value{@backmatter@prior@page}}
+   \stepcounter{page}
+}
 
 %
 % VITA
