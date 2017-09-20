@@ -826,7 +826,7 @@ $\:\overline{~~~~ \mbox{\rule{0in}{0.16in}\small ~\hspace{3.5in} Date }}\:$ \\
   %%%%%
   \@schapter{\contentsname
         \@mkboth{\uppercase{\contentsname}}{\uppercase{\contentsname}}}%
-  {\ssp\@starttoc{toc}}\if@restonecol\twocolumn\fi}
+  {\@starttoc{toc}}\if@restonecol\twocolumn\fi}
 
 \def\l@part#1#2{\addpenalty{-\@highpenalty}%
    \addvspace{2.25em plus\p@}% space above part line
@@ -880,7 +880,7 @@ $\:\overline{~~~~ \mbox{\rule{0in}{0.16in}\small ~\hspace{3.5in} Date }}\:$ \\
   \@schapter{\listfigurename\@mkboth{\uppercase{\listfigurename}}%
    {\uppercase{\listfigurename}}}
    \addcontentsline{toc}{chapter}{\listfigurename}
-   {\ssp\@starttoc{lof}}\if@restonecol\twocolumn\fi}
+   {\@starttoc{lof}}\if@restonecol\twocolumn\fi}
 
 \def\l@figure{\@dottedtocline{1}{1.5em}{2.3em}}
 
@@ -897,7 +897,7 @@ $\:\overline{~~~~ \mbox{\rule{0in}{0.16in}\small ~\hspace{3.5in} Date }}\:$ \\
   \@schapter{\listtablename\@mkboth{\uppercase{\listtablename}}%
   {\uppercase{\listtablename}}}
   \addcontentsline{toc}{chapter}{\listtablename}
-  {\ssp\@starttoc{lot}}\if@restonecol\twocolumn\fi}
+  {\@starttoc{lot}}\if@restonecol\twocolumn\fi}
 
 \let\l@table\l@figure
 
